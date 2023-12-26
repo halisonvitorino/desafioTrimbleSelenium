@@ -22,7 +22,7 @@ public class HomePage {
     By todoInputFilled      = By.cssSelector("li:nth-child(1) label");
     By todoListCompleted    = By.linkText("Completed");
     By todoEditInputField   = By.xpath("//div/label");
-    By todoInputForDelete   = By.xpath("//label[contains(text(),'Halison')]");
+    By todoInputForDelete   = By.xpath("//label[contains(text(),'New todo')]");
     By todoDeleteButton     = By.xpath("//body/section[1]/div[1]/section[1]/ul[1]/li[1]/div[1]/button[1]");
 
     public void inputTodo(String todo){
@@ -71,7 +71,6 @@ public class HomePage {
         WebElement textBox = driver.findElement(todoInputFilled);
         driver.findElement(todoListCompleted).click();
         Assert.assertTrue(textBox.getText().contentEquals(todo));
-        System.out.println(todo);
     }
 
     public void deleteTodo(){
@@ -80,5 +79,11 @@ public class HomePage {
         actions.moveToElement(element).perform();
         WebElement hiddenElement = driver.findElement(todoDeleteButton);
         hiddenElement.click();
+    }
+
+    public void verifyDeletedTodo(){
+        WebElement textBox = driver.findElement(todoInputField);
+        Assert.assertTrue(textBox.isDisplayed());
+        Assert.assertTrue(textBox.getText().isEmpty());
     }
 }

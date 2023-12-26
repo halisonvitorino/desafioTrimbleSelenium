@@ -6,3 +6,4 @@ Feature: Delete Todo
     And the user enters a task
     And press enter
     When the user delete a selected task
+    Then the task is not visible on the list

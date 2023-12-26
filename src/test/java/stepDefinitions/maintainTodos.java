@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.HomePage;
@@ -40,7 +41,6 @@ public class maintainTodos {
         } else {
             ScreenshotUtils.captureScreenshot(driver, scenario);
         }
-
         if (driver != null) {
             driver.quit();
         }
@@ -54,7 +54,7 @@ public class maintainTodos {
 
     @When("the user enters a task")
     public void theUserEntersATask() {
-        homePage.inputTodo("Halison");
+        homePage.inputTodo("New todo");
     }
 
     @And("press enter")
@@ -64,9 +64,8 @@ public class maintainTodos {
 
     @Then("a new line with the new task is created")
     public void aNewLineWithTheNewTaskIsCreated() {
-        homePage.readCreatedTodo("Halison");
+        homePage.readCreatedTodo("New todo");
     }
-
 
     @When("the user select a task to mark as complete")
     public void theUserSelectATaskToMarkAsComplete() {
@@ -80,7 +79,7 @@ public class maintainTodos {
 
     @And("is listed as completed task")
     public void isListedAsCompletedTask() {
-        homePage.listCompletedTodo("Halison");
+        homePage.listCompletedTodo("New todo");
     }
 
     @When("the user select a task to edit")
@@ -95,7 +94,6 @@ public class maintainTodos {
 
     @Then("the task is not visible on the list")
     public void theTaskIsNotVisibleOnTheList() {
+        homePage.verifyDeletedTodo();
     }
-
-
 }
