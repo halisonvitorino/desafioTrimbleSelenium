@@ -1,4 +1,3 @@
-@Ignore
 Feature: Create Todo
   The user wants to create a task
 

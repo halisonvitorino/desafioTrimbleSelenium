@@ -1,4 +1,3 @@
-@Ignore
 Feature: Complete Todo
   The user wants to mark a task as complete
 
