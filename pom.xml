@@ -70,7 +70,7 @@
                 <configuration>
                     <parallel>methods</parallel>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <threadCount>10</threadCount>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
             </plugin>
         </plugins>
