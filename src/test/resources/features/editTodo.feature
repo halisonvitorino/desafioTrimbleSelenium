@@ -7,4 +7,5 @@ Feature: Edit Todo
     And press enter
     When the user select a task to edit
     And press enter
-    Then a new line with the new task is created
+    Then a line with the edited task is created
+

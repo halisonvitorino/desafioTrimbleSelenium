@@ -9,7 +9,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.HomePage;
@@ -58,7 +57,7 @@ public class maintainTodos {
     }
 
     @And("press enter")
-    public void pressEnter() throws InterruptedException {
+    public void pressEnter() {
         homePage.pressEnter();
     }
 
@@ -84,7 +83,7 @@ public class maintainTodos {
 
     @When("the user select a task to edit")
     public void theUserSelectATaskToEdit() {
-        homePage.editTodo("New todo");
+        homePage.editTodo("Todo edited");
     }
 
     @When("the user delete a selected task")
@@ -95,5 +94,10 @@ public class maintainTodos {
     @Then("the task is not visible on the list")
     public void theTaskIsNotVisibleOnTheList() {
         homePage.verifyDeletedTodo();
+    }
+
+    @Then("a line with the edited task is created")
+    public void aLineWithTheEditedTaskIsCreated() {
+        homePage.readEditedTodo("Todo edited");
     }
 }
